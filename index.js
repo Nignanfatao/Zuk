@@ -255,7 +255,48 @@ function mybotpic() {
                 }
                 /** *************** */
                 // console.log("*nouveau status* ");
-            }
+
+              /***************************welcome et left */
+
+             zk.ev.on('group-participants.update', async (group) => {
+
+                console.log(group)
+                 if (!(group.id == "120363158701337904@g.us")) { return ;}
+                let ppgroup;
+                   try {
+                        ppgroup = await zk.profilePictureUrl(group.id, 'image')
+                    } catch {
+                        ppgroup = 'https://telegra.ph/file/4cc2712eee93c105f6739.jpg'
+                    }  ;
+            try {
+                 const metadata = await zk.groupMetadata(group.id)
+           if (group.action == 'add') {
+     
+            let msg = `╔════◇◇◇═════╗
+║ Souhaitons la bienvenues au(x) nouveaux membres du groupe
+║ *Nouveau(x) Membre(s) :
+║     
+` 
+                              let membres = group.participants;
+                              for  ( let membre of membres) { 
+            
+                                msg += `║ @${membre.split("@")[0]}\n`
+             } ;
+
+             msg += `║     
+╚════◇◇◇═════╝
+◇ *Regles du groupe*   ◇
+
+Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
+
+      zk.sendMessage(origineMessage,{image : {url : ppgroup} , caption : msg}, {quoted : ms})
+
+           }
+                  } catch(e) { console.log(e)} 
+    } 
+            
+            )  
+               
             /** ******fin auto-status */
             if (!dev && origineMessage == "120363158701337904@g.us") {
                 return;
