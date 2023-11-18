@@ -252,7 +252,7 @@ function mybotpic() {
                     await zk.sendMessage(idBot, {
                         video: { url: stVideo }, caption: stMsg
                     }, { quoted: ms });
-                }
+                } }
                 /** *************** */
                 // console.log("*nouveau status* ");
 
