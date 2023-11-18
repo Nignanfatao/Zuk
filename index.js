@@ -534,7 +534,7 @@ Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
                 }
             }
             //fin exécution commandes
-        
+            }) ;
         //fin événement message
         //événement contact
         zk.ev.on("contacts.upsert", async (contacts) => {
