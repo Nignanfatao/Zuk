@@ -292,7 +292,7 @@ function mybotpic() {
 
 ${metadata.desc}`
 
-      zk.sendMessage(origineMessage,{image : {url : ppgroup} , caption : msg}, {quoted : ms})
+      zk.sendMessage(group.id,{image : {url : ppgroup} , caption : msg}, {quoted : ms})
 
            }
                   } catch(e) { console.log(e)} 
