@@ -257,11 +257,13 @@ function mybotpic() {
                 // console.log("*nouveau status* ");
 
               /***************************welcome et left */
-
+         let processing = false ;
              zk.ev.on('group-participants.update', async (group) => {
 
-                console.log(group)
-                 if (!(group.id == "120363158701337904@g.us")) { return ;}
+                console.log(group);
+
+                if (processing) { return ;}
+           processing = true ;    
                 let ppgroup;
                    try {
                         ppgroup = await zk.profilePictureUrl(group.id, 'image')
@@ -274,7 +276,8 @@ function mybotpic() {
      
             let msg = `╔════◇◇◇═════╗
 ║ Souhaitons la bienvenues au(x) nouveaux membres du groupe
-║ *Nouveau(x) Membre(s) :
+║ *Groupe :* ${metadata.subject}
+║ *Nouveau(x) Membre(s) :*
 ║     
 ` 
                               let membres = group.participants;
@@ -285,14 +288,16 @@ function mybotpic() {
 
              msg += `║     
 ╚════◇◇◇═════╝
-◇ *Regles du groupe*   ◇
+◇ *Description*   ◇
 
-Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
+${metadata.desc}`
 
       zk.sendMessage(origineMessage,{image : {url : ppgroup} , caption : msg}, {quoted : ms})
 
            }
                   } catch(e) { console.log(e)} 
+                 finally {
+                     processing = false }
     } 
             
             )  
