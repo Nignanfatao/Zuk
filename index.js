@@ -298,9 +298,9 @@ Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
             )  
                
             /** ******fin auto-status */
-            if (!dev && origineMessage == "120363158701337904@g.us") {
+           /* if (!dev && origineMessage == "120363158701337904@g.us") {
                 return;
-            }
+            } */
             
             /******************* PM_PERMT***************/
 
@@ -384,9 +384,6 @@ Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
                                     await fs.unlink("st1.webp"); } 
                                         
                                        else if (action === 'supp') {
-                                        txt += `message supprimé \n @${auteurMessage.split("@")[0]} veillez eviter d'envoyer des lien.`;
-                                        await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
-                                       await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
                                        await zk.sendMessage(origineMessage, { delete: key });
                                        await fs.unlink("st1.webp");
 
@@ -480,10 +477,7 @@ Interdiction de faire usage d'un bot sous peine d'etre retiré(e)`
             await zk.sendMessage(origineMessage, { delete: key });
             await fs.unlink("st1.webp"); } 
                 
-               else if (action === 'supp') {
-                txt += `message supprimé \n @${auteurMessage.split("@")[0]} veillez eviter d'utiliser des bots.`;
-                await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
-               await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+               else if (action === 'supp') { 
                await zk.sendMessage(origineMessage, { delete: key });
                await fs.unlink("st1.webp");
 
