@@ -79,7 +79,7 @@ Pour utiliser une  commande, tapez  ${prefixe}"nom de la commande"
 
    var lien = mybotpic();
 
-  /* if (lien.match(/\.(mp4|gif)$/i)) {
+   if (lien.match(/\.(mp4|gif)$/i)) {
     try {
         zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *Zokou-MD*, développé par Djalega++" }, { quoted: ms });
     }
@@ -102,22 +102,6 @@ else {
     
     repondre(infoMsg + menuMsg);
     
-} */  
-zk.sendMessage(dest, { 
-text: infoMsg + menuMsg,
-mentions:[auteurMessage],
-contextInfo:{
-mentionedJid:[auteurMessage],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"title": nom , 
-"containsAutoReply": true,
-"mediaType": 1, 
-"thumbnail": lien,
-"mediaUrl": `https://chat.whatsapp.com/H6oeuhfSMtV1Orjmf2NVnl`,
-"sourceUrl": `https://chat.whatsapp.com/H6oeuhfSMtV1Orjmf2NVnl`
-}
-}
-})
+} 
+
     });
