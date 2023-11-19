@@ -73,7 +73,8 @@ Je suis *${nom}*, un bot développé par *La team Zokou*.
 Pour utiliser une  commande, tapez  ${prefixe}"nom de la commande"
  
  *『ZokouMD*
-                                                
+
+https://chat.whatsapp.com/H6oeuhfSMtV1Orjmf2NVnl                                            
 *»»————— ★ —————««*
 `;
 
