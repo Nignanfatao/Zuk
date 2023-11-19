@@ -111,7 +111,7 @@ mentionedJid:[auteurMessage],
 "externalAdReply": {
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
-"title": ${nom}, 
+"title": nom , 
 "containsAutoReply": true,
 "mediaType": 1, 
 "thumbnail": lien,
@@ -120,5 +120,4 @@ mentionedJid:[auteurMessage],
 }
 }
 })
-    }
-});
+    });
