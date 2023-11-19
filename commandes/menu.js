@@ -8,7 +8,7 @@ const s = require(__dirname + "/../set");
 const {getThemeInfoById , getThemeChoice} = require("../bdd/theme");
 
 zokou({ nomCom: "menu", categorie: "Général" }, async (dest, zk, commandeOptions) => {
-    let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
+    let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic,auteurMessage} = commandeOptions;
     let { cm } = require(__dirname + "/../framework//zokou");
     var coms = {};
     var mode = "public";
@@ -50,7 +50,7 @@ const date = moment().format('DD/MM/YYYY');
 *╚═════ •✧✧• ════╝* \n\n`;
     
 let menuMsg = `
-👋 salut ${nomAuteurMessage} 👋
+👋 salut ${auteurMessage.split("@")[0]} 👋
 Je suis *${nom}*, un bot développé par *La team Zokou*.
 
 *Voici la liste de mes commandes :*
@@ -79,7 +79,7 @@ Pour utiliser une  commande, tapez  ${prefixe}"nom de la commande"
 
    var lien = mybotpic();
 
-   if (lien.match(/\.(mp4|gif)$/i)) {
+  /* if (lien.match(/\.(mp4|gif)$/i)) {
     try {
         zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *Zokou-MD*, développé par Djalega++" }, { quoted: ms });
     }
@@ -102,6 +102,23 @@ else {
     
     repondre(infoMsg + menuMsg);
     
+} */  
+zk.sendMessage(dest, { 
+text: ,
+mentions:[auteurMessage],
+contextInfo:{
+mentionedJid:[auteurMessage],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": ${nom}, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": lien,
+"mediaUrl": `https://chat.whatsapp.com/H6oeuhfSMtV1Orjmf2NVnl`,
+"sourceUrl": `https://chat.whatsapp.com/H6oeuhfSMtV1Orjmf2NVnl`
 }
-
+}
+})
+    }
 });
