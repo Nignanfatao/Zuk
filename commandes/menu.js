@@ -104,7 +104,7 @@ else {
     
 } */  
 zk.sendMessage(dest, { 
-text: ,
+text: infoMsg + menuMsg,
 mentions:[auteurMessage],
 contextInfo:{
 mentionedJid:[auteurMessage],
