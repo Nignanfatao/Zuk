@@ -130,22 +130,24 @@ zokou( {
          } else if ( data.level >= 45 || data.level < 50 ) {
             role = 'Otsusuki'
          } else {
-            role = 'level-GOD'
+            role = 'GOD'
          }
     
     
          let msg = `
-    ┏━━━┛ ZK-Rang ┗━━━┓
+┏━━━┛ ZK-Rang ┗━━━┓
          
-      *Nom :* @${auteurMsgRepondu.split("@")[0]}
+    *Nom :* @${auteurMsgRepondu.split("@")[0]}
     
-      *Level :* ${data.level}
+    *Level :* ${data.level}
     
-      *EXP :* ${data.exp}/${data.xplimit}
+    *EXP :* ${data.exp}/${data.xplimit}
     
-      *Role :* ${role}
+    *Role :* ${role}
+
+    *Messages :* ${rank.messages}
     
-    ┕━✿━┑  ┍━✿━┙`
+   ┕━✿━┑  ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
@@ -290,7 +292,9 @@ zokou( {
 
   *Role :* ${role}
 
-┕━✿━┑ smiley.cool ┍━✿━┙`
+  *Messages :* ${rank.messages}
+
+   ┕━✿━┑  ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
