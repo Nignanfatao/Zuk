@@ -88,7 +88,7 @@ zokou( {
    }, 
    async(dest,zk, commandeOptions)=> {
   
-    const {ms , arg, repondre,auteurMessage,nomAuteurMessage, msgRepondu , auteurMsgRepondu , mybotpic ,repondre} = commandeOptions ;
+    const {ms , arg, repondre,auteurMessage,nomAuteurMessage, msgRepondu , auteurMsgRepondu , mybotpic} = commandeOptions ;
 
   if (msgRepondu) {
       
