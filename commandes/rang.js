@@ -88,7 +88,7 @@ zokou( {
    }, 
    async(dest,zk, commandeOptions)=> {
   
-    const {ms , arg, repondre,auteurMessage,nomAuteurMessage, msgRepondu , auteurMsgRepondu , mybotpic} = commandeOptions ;
+    const {ms , arg, repondre,auteurMessage,nomAuteurMessage, msgRepondu , auteurMsgRepondu , mybotpic ,repondre} = commandeOptions ;
 
   if (msgRepondu) {
       
@@ -160,7 +160,7 @@ zokou( {
        } catch (error) {
          repondre(error)
        }
-  } else if (arg[0] != null || arg[0] != ' ') {
+  } /*else if (arg[0] != null || arg[0] != ' ') {
    
      try {
              let jid = arg[0].replace(/[^0-9]/g) + "@s.whatsapp.net" ;
@@ -228,10 +228,10 @@ zokou( {
           )
         
      } catch (error) {
-         reppndre('veillez faire un tag valide')
+         repondre('veillez faire un tag valide')
      }
 
-    }  else {
+    } */ else {
 
 
       try {
