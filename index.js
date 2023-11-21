@@ -256,7 +256,7 @@ function mybotpic() {
                 /** *************** */
                 // console.log("*nouveau status* ");
 
-              /***************************welcome et left */
+              /***************************welcome et left 
          let processing = false ;
              zk.ev.on('group-participants.update', async (group) => {
 
@@ -313,7 +313,15 @@ ${metadata.desc}`
                 repondre("Vous avez pas acces aux commandes en privé") ; return }
             ///////////////////////////////
 
-             
+      if (texte && auteurMessage.endsWith("s.whatsapp.net")) {
+  const { ajouterOuMettreAJourUserData } = require("./bdd/level"); 
+  try {
+    await ajouterOuMettreAJourUserData(auteurMessage);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
             /*****************************banGroup  */
             if (verifCom && !superUser && verifGroupe) {
 
