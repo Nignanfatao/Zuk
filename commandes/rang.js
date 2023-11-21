@@ -94,9 +94,9 @@ zokou( {
       
        try {
           
-        let xp = await getMessagesAndXPByJID(auteurMsgRepondu) ;
+        let rank = await getMessagesAndXPByJID(auteurMsgRepondu) ;
 
-        const data = await get_level_exp(xp)
+        const data = await get_level_exp(rank.xp)
          let ppuser ;
     
          
