@@ -8,7 +8,7 @@ const { Pool } = require("pg");
 const s = require("../set");
 
 // Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-const dbUrl = 'postgresql://postgres:gIRX1xNokfnbkysQgyAF@containers-us-west-179.railway.app:8058/railway';
+const dbUrl = "postgresql://postgres:60wiGRzUhZwfY1zyp2jl@containers-us-west-160.railway.app:5879/railway" ;
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
