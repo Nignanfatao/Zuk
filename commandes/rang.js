@@ -129,13 +129,13 @@ zokou( {
             role = 'Hermit seinin'
          } else if ( data.level >= 45 || data.level < 50 ) {
             role = 'Otsusuki'
-         } else if ( data.level >= 50 ) {
+         } else {
             role = 'level-GOD'
          }
     
     
          let msg = `
-    ┏━━━━━━┛ ZK-Rang ┗━━━━━━┓
+    ┏━━━┛ ZK-Rang ┗━━━┓
          
       *Nom :* ${auteurMsgRepondu.split("@")[0]}
     
@@ -145,13 +145,14 @@ zokou( {
     
       *Role :* ${role}
     
-    ┕━━✿━━┑  ┍━━✿━━┙`
+    ┕━✿━┑  ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
         {
-            image : {url : mybotpic()},
-            caption : msg
+            image : {url : ppuser},
+            caption : msg,
+            mentions : [auteurMsgRepondu]
         },
         {quoted : ms}
       )
@@ -273,15 +274,15 @@ zokou( {
             role = 'Hermit seinin'
          } else if ( data.level >= 45 || data.level < 50 ) {
             role = 'Otsusuki'
-         } else if ( data.level >= 50 ) {
+         } else {
             role = 'level-GOD'
          }
     
     
          let msg = `
-┏━━━━━━┛ ZK-Rang ┗━━━━━━┓
+┏━━━┛ ZK-Rang ┗━━━┓
      
-  *Nom :* @${nomAuteurMessage}
+  *Nom :* ${nomAuteurMessage}
 
   *Level :* ${data.level}
 
@@ -289,12 +290,12 @@ zokou( {
 
   *Role :* ${role}
 
-┕━━✿━━┑ smiley.cool ┍━━✿━━┙`
+┕━✿━┑ smiley.cool ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
         {
-            image : {url : mybotpic()},
+            image : {url : ppuser},
             caption : msg
         },
         {quoted : ms}
