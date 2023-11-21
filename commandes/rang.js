@@ -137,7 +137,7 @@ zokou( {
          let msg = `
     ┏━━━┛ ZK-Rang ┗━━━┓
          
-      *Nom :* ${auteurMsgRepondu.split("@")[0]}
+      *Nom :* @${auteurMsgRepondu.split("@")[0]}
     
       *Level :* ${data.level}
     
@@ -239,9 +239,9 @@ zokou( {
         
         let jid = auteurMessage ;
           
-        let xp = await getMessagesAndXPByJID(jid) ;
+        let rang = await getMessagesAndXPByJID(jid) ;
 
-        const data =  get_level_exp(xp)
+        const data =  get_level_exp(rang.xp)
          let ppuser ;
     
          
