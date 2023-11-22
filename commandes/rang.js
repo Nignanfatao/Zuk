@@ -255,7 +255,7 @@ zokou( {
        let msg = `┏━━┛ ZK-top-rang ┗━━┓\n\n`
        
       let topRanks = await getBottom10Users() ;
-        let mention = []
+        let mention = [] ;
         for (const rank of topRanks ) {
 
              const data = await get_level_exp(rank.xp) ;
@@ -288,9 +288,9 @@ zokou( {
             msg += `-----------------------
  *Nom :* @${rank.jid.split("@")[0]}
 *Level :* ${data.level}
-*Role :* ${role}`
+*Role :* ${role}` ;
 
-        mention[] = rank.jid
+        mention.push(rank.jid) ;
         }
 
        zk.sendMessage(dest,
