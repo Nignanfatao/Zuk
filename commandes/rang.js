@@ -244,7 +244,7 @@ zokou( {
 }) ;
 
 zokou( {
-  nomCom : "rang",
+  nomCom : "toprang",
  categorie : "Fun",
    }, 
    async(dest,zk, commandeOptions)=> {
