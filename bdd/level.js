@@ -91,7 +91,7 @@ async function getBottom10Users() {
 
   try {
     // Sélectionnez les 10 premiers utilisateurs classés par XP de manière ascendante (du plus bas au plus élevé)
-    const query = 'SELECT jid, xp , messages FROM users_rank ORDER BY xp ASC LIMIT 10';
+    const query = 'SELECT jid, xp , messages FROM users_rank ORDER BY xp DESC LIMIT 10';
     const result = await client.query(query);
 
     // Retournez le tableau des utilisateurs
