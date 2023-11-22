@@ -221,7 +221,7 @@ zokou( {
 
   *Role :* ${role}
 
-  *Messages :* ${rank.messages}
+  *Messages :* ${rang.messages}
 
    ┕━✿━┑  ┍━✿━┙`
     
@@ -286,9 +286,10 @@ zokou( {
             role = 'level-GOD'
          }
             msg += `-----------------------
+            
  *Nom :* @${rank.jid.split("@")[0]}
 *Level :* ${data.level}
-*Role :* ${role}` ;
+*Role :* ${role}\n` ;
 
         mention.push(rank.jid) ;
         }
