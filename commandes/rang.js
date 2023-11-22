@@ -163,14 +163,14 @@ zokou( {
        } catch (error) {
          repondre(error)
        }
-  } /*else if (arg[0] != null || arg[0] != ' ') {
+  } else if (arg[0].startsWith("@")) {
    
      try {
              let jid = arg[0].replace(/[^0-9]/g) + "@s.whatsapp.net" ;
           
-            let xp = await getMessagesAndXPByJID(jid) ;
+            let rank = await getMessagesAndXPByJID(jid) ;
     
-            const data =  get_level_exp(xp)
+            const data =  get_level_exp(rank.xp)
              let ppuser ;
         
              
@@ -209,7 +209,7 @@ zokou( {
         
         
              let msg = `
-┏━━━━━━┛ ZK-Rang ┗━━━━━━┓
+┏━━━━┛ ZK-Rang ┗━━━━┓
              
   *Nom :* @${jid.split("@")[0]}
         
@@ -218,14 +218,17 @@ zokou( {
   *EXP :* ${data.exp}/${data.xplimit}
         
   *Role :* ${role}
+
+  *Messages :* ${rank.messages}
         
-┕━━✿━━┑ smiley.cool ┍━━✿━━┙`
+┕━✿━┑  ┍━✿━┙`
         
          zk.sendMessage( 
             dest,
             {
-                image : {url : mybotpic()},
-                caption : msg
+                image : {url : ppuser},
+                caption : msg,
+                mentions : [jid]
             },
             {quoted : ms}
           )
@@ -234,7 +237,7 @@ zokou( {
          repondre('veillez faire un tag valide')
      }
 
-    } */ else {
+    }  else {
 
 
       try {
