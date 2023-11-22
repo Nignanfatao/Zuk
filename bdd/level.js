@@ -86,10 +86,31 @@ async function getMessagesAndXPByJID(jid) {
   }
 }
 
+async function getBottom10Users() {
+  const client = await pool.connect();
+
+  try {
+    // Sélectionnez les 10 premiers utilisateurs classés par XP de manière ascendante (du plus bas au plus élevé)
+    const query = 'SELECT jid, xp , messages FROM users_rank ORDER BY xp ASC LIMIT 10';
+    const result = await client.query(query);
+
+    // Retournez le tableau des utilisateurs
+    return result.rows;
+  } catch (error) {
+    console.error('Erreur lors de la récupération du bottom 10 des utilisateurs:', error);
+    return []; // En cas d'erreur, renvoyez un tableau vide
+  } finally {
+    client.release();
+  }
+}
+
+
+
 // Exécutez la fonction de création de la table lors de l'initialisation
 createUsersRankTable();
 
 module.exports = {
   ajouterOuMettreAJourUserData,
   getMessagesAndXPByJID,
+  getBottom10Users,
 };
