@@ -1,6 +1,6 @@
 const {zokou} = require("../framework/zokou");
 const conf = require("../set");
-const {getMessagesAndXPByJID} = require("../bdd/level");
+const {getMessagesAndXPByJID,getBottom10Users} = require("../bdd/level");
 
 
 function get_level_exp(xp) {
@@ -241,5 +241,69 @@ zokou( {
     } 
 
 
-})
+}) ;
+
+zokou( {
+  nomCom : "rang",
+ categorie : "Fun",
+   }, 
+   async(dest,zk, commandeOptions)=> {
+  
+    const {ms , arg, repondre,auteurMessage,nomAuteurMessage, msgRepondu , auteurMsgRepondu , mybotpic} = commandeOptions ;
+
+
+       let msg = `┏━━┛ ZK-top-rang ┗━━┓\n\n`
+       
+      let topRanks = await getBottom10Users() ;
+        let mention = []
+        for (const rank of topRanks ) {
+
+             const data = await get_level_exp(rank.xp) ;
+
+             let role ;
+    
+         if (data.level < 5) {
+            role = 'Nouveau né(e)'
+         } else if (data.level >= 5 || data.level < 10) {
+            role = 'aspirant(e)-Ninja'
+         } else if ( data.level >= 10 || data.level < 15 ) {
+            role = 'Ninja-genin'
+         } else if ( data.level >= 15 || data.level < 20 ) {
+            role = 'Ninja-chunin'
+         } else if ( data.level >= 20 || data.level < 25 ) {
+            role = 'Ninja-jonin'
+         } else if ( data.level >= 25 || data.level < 30 ) {
+            role = 'ANBU'
+         } else if ( data.level >= 30 || data.level < 35 ) {
+            role = 'ninja d\'expception'
+         } else if ( data.level >= 35 || data.level < 40 ) {
+            role = 'kage'
+         } else if ( data.level >= 40 || data.level < 45 ) {
+            role = 'Hermit seinin'
+         } else if ( data.level >= 45 || data.level < 50 ) {
+            role = 'Otsusuki'
+         } else {
+            role = 'level-GOD'
+         }
+            msg += `-----------------------
+ *Nom :* @${rank.jid.split("@")[0]}
+*Level :* ${data.level}
+*Role :* ${role}`
+
+        mention[] = rank.jid
+        }
+
+       zk.sendMessage(dest,
+                      {
+                        image : { url : mybotpic() },
+                        caption : msg,
+                        mentions : mention
+                      },
+                      {quoted : ms})
+       
+
+   })
+
+
+   
     
